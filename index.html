@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Markdown Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body ng-app="MarkdownEditor" ng-controller="EditorCtrl">
+
+
+<div class="wrapper">
+    <div class="editor__container" id="editor__container">
+        <div class="editor__header">
+            <button class="editor__button editor__button--bold" ng-click="bold()"><i class="icon-bold"></i></button>
+            <button class="editor__button editor__button--italic" ng-click="italic()"><i class="icon-italic"></i></button>
+            <button class="editor__button editor__button--link" ng-click="link()"><i class="icon-link"></i></button>
+            <button class="editor__button editor__button--image" ng-click="image()"><i class="icon-image"></i></button>
+            <button class="editor__button editor__button--code" ng-click="code()"><i class="icon-code"></i></button>
+
+            <button class="editor__button editor__button--resize right" ng-click="screen()"><i class="icon-resize"></i></button>
+            <div class="clear"></div>
+        </div>
+
+        <div class="editor__mk">
+            <div class="editor__mk--name">Markdown</div>
+            <textarea id="editor__content" class="editor__content" ng-model="content" ng-handle-tab></textarea>
+        </div>
+        <div class="editor__preview" id="preview__area">
+            <div class="editor__preview--name">Preview</div>
+            <div ng-bind-html="content_parse(content)" class="editor__preview--content"></div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="libs/markdown_converter.js"></script>
+<script type="text/javascript" src="libs/angular/angular.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
